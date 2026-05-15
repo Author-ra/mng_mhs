@@ -1,0 +1,36 @@
+# Environment variables
+.env
+.env.*
+
+# CI/CD
+/.github/
+
+# Composer
+/vendor/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Cache / build outputs
+.cache/
+.phpunit.result.cache
+
+# CodeIgniter writable folders
+writable/uploads/
+writable/cache/
+writable/debugbar/
+writable/logs/
+writable/session/
+
+# PHPUnit
+/build/
+

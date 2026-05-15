@@ -65,57 +65,66 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 
 ### GitHub
 
-To push this project to GitHub from the project root:
+Repository sudah tersedia di: https://github.com/Author-ra/mng_mhs
 
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/Author-ra/mng_mhs.git
-git push -u origin main
-```
+### Vercel Deployment
 
-### Vercel
+#### Step 1: Connect to Vercel
 
-This repository includes `vercel.json` for PHP deployment with CodeIgniter 4. Vercel expects the app entrypoint at `public/index.php`.
+1. Visit [vercel.com](https://vercel.com)
+2. Click **"Add New"** → **"Project"**
+3. Select **"Import Git Repository"**
+4. Connect GitHub and select `Author-ra/mng_mhs`
 
-- Use `@vercel/php` as the build runtime.
-- Serve static assets from `public/`.
-- Route all application requests to `public/index.php`.
+#### Step 2: Configure Project
 
-#### Environment Variables Setup di Vercel:
+- **Framework Preset**: Leave as detected (Vercel will auto-detect)
+- **Build Command**: `composer install --no-dev` (already in vercel.json)
+- **Install Command**: `composer install`
+- **Output Directory**: `public`
 
-Setelah import project ke Vercel, tambahkan Environment Variables berikut di **Project Settings > Environment Variables**:
+#### Step 3: Add Environment Variables
+
+In **Project Settings** → **Environment Variables**, add:
 
 ```
 CI_ENVIRONMENT=production
 APP_ENV=production
-APP_BASEURL=https://your-app-name.vercel.app/
-ENCRYPTION_KEY=pHjUdtDWSrGzf3AhObEqCcZYuXy15KnR
-
-# Database (jika menggunakan)
-DATABASE_HOSTNAME=your-database-host
-DATABASE_USERNAME=your-db-username
-DATABASE_PASSWORD=your-db-password
-DATABASE_NAME=your-database-name
 ```
 
-#### Database Setup:
+**Optional for Database:**
 
-Untuk production, gunakan database eksternal seperti:
+```
+DATABASE_HOSTNAME=your-db-host
+DATABASE_USERNAME=your-db-user
+DATABASE_PASSWORD=your-db-pass
+DATABASE_NAME=your-db-name
+```
 
-- **PlanetScale** (recommended untuk Vercel)
-- **Railway**
-- **AWS RDS**
-- **Google Cloud SQL**
+#### Step 4: Deploy
 
-Copy konfigurasi database dari provider ke Environment Variables di atas.
+- Click **"Deploy"**
+- Wait for build to complete (2-5 minutes)
+- Your app will be live at: `https://your-project-name.vercel.app`
 
-If you want to deploy on Vercel:
+#### Database Recommendations:
 
-1. Connect your GitHub repository to Vercel.
-2. Import the project.
-3. Leave the default build settings as detected.
-4. Add the environment variables above.
-5. Deploy.
+For production database deployment with Vercel, use:
+
+- **PlanetScale** (MySQL, free tier available)
+- **Railway** (PostgreSQL/MySQL)
+- **Supabase** (PostgreSQL)
+- **AWS RDS** (Full managed)
+
+#### After Deployment:
+
+1. Update `APP_BASEURL` environment variable to your live Vercel URL
+2. Set up database backups
+3. Configure domain if needed (under Domains settings)
+
+#### Troubleshooting:
+
+- Check **Logs** tab in Vercel for build errors
+- Ensure all environment variables are set
+- Verify database connection if using external DB
+- Check `.htaccess` is properly deployed in `public/` folder

@@ -1,4 +1,5 @@
 {
   "buildCommand": "composer install --no-dev",
-  "framework": "symfony"
+  "framework": "symfony",
+  "nodeVersion": "20.x"
 }

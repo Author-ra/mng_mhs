@@ -1,22 +1,7 @@
 {
-  "version": 2,
-  "functions": {
-    "public/index.php": {
-      "runtime": "vercel-php@0.6.0"
-    }
-  },
-  "routes": [
-    {
-      "src": "^/(favicon\\.ico|robots\\.txt|.*\\.(js|css|png|jpg|jpeg|svg|gif|ico|webp|json|xml|txt|woff|woff2|ttf|eot))$",
-      "dest": "/public/$1"
-    },
-    {
-      "src": "^/(.*)$",
-      "dest": "/public/index.php"
-    }
-  ],
+  "buildCommand": "composer install --no-dev",
+  "outputDirectory": "public",
   "env": {
-    "CI_ENVIRONMENT": "production",
-    "APP_ENV": "production"
+    "CI_ENVIRONMENT": "production"
   }
 }

@@ -1,7 +1,0 @@
-{
-  "buildCommand": "composer install --no-dev",
-  "outputDirectory": "public",
-  "env": {
-    "CI_ENVIRONMENT": "production"
-  }
-}

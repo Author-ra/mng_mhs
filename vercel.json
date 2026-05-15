@@ -1,5 +1,25 @@
 {
+  "version": 2,
   "buildCommand": "composer install --no-dev",
   "framework": "symfony",
-  "nodeVersion": "20.x"
+  "functions": {
+    "public/index.php": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  },
+  "routes": [
+    {
+      "src": "/public/(.*)",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/index.php"
+    }
+  ],
+  "env": {
+    "CI_ENVIRONMENT": "production",
+    "APP_ENV": "production"
+  }
 }

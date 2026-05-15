@@ -84,9 +84,38 @@ This repository includes `vercel.json` for PHP deployment with CodeIgniter 4. Ve
 - Serve static assets from `public/`.
 - Route all application requests to `public/index.php`.
 
+#### Environment Variables Setup di Vercel:
+
+Setelah import project ke Vercel, tambahkan Environment Variables berikut di **Project Settings > Environment Variables**:
+
+```
+CI_ENVIRONMENT=production
+APP_ENV=production
+APP_BASEURL=https://your-app-name.vercel.app/
+ENCRYPTION_KEY=pHjUdtDWSrGzf3AhObEqCcZYuXy15KnR
+
+# Database (jika menggunakan)
+DATABASE_HOSTNAME=your-database-host
+DATABASE_USERNAME=your-db-username
+DATABASE_PASSWORD=your-db-password
+DATABASE_NAME=your-database-name
+```
+
+#### Database Setup:
+
+Untuk production, gunakan database eksternal seperti:
+
+- **PlanetScale** (recommended untuk Vercel)
+- **Railway**
+- **AWS RDS**
+- **Google Cloud SQL**
+
+Copy konfigurasi database dari provider ke Environment Variables di atas.
+
 If you want to deploy on Vercel:
 
 1. Connect your GitHub repository to Vercel.
 2. Import the project.
 3. Leave the default build settings as detected.
-4. Deploy.
+4. Add the environment variables above.
+5. Deploy.

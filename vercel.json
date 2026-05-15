@@ -2,6 +2,13 @@
   "version": 2,
   "builds": [
     {
+      "src": "vercel-build.sh",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "."
+      }
+    },
+    {
       "src": "public/index.php",
       "use": "@vercel/php"
     }
@@ -11,5 +18,14 @@
       "src": "^/(.*)$",
       "dest": "/public/index.php"
     }
-  ]
+  ],
+  "env": {
+    "CI_ENVIRONMENT": "production",
+    "APP_ENV": "production"
+  },
+  "functions": {
+    "public/index.php": {
+      "runtime": "vercel-php@0.6.0"
+    }
+  }
 }

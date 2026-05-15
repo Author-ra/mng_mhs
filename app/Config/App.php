@@ -18,6 +18,9 @@ class App extends BaseConfig
      */
     public string $baseURL = 'http://localhost:8081/';
 
+    // For Vercel deployment, baseURL will be set via environment variable
+    // public string $baseURL = getenv('VERCEL_URL') ? 'https://' . getenv('VERCEL_URL') . '/' : 'http://localhost:8081/';
+
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
      * If you want to accept multiple Hostnames, set this.
